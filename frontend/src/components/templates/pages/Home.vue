@@ -9,7 +9,7 @@
 </template>
 
 <script>
-	import PageTitle from "./PageTitle.vue";
+	import PageTitle from "./page/Titulo.vue";
 	export default {
 		components: { PageTitle },
 	};
