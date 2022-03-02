@@ -1,9 +1,15 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import "@fortawesome/fontawesome-free/css/all.css";
+import "./config/bootstrapVue";
 
-const app = createApp(App)
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
 
-app.use(router)
+Vue.config.productionTip = false;
 
-app.mount('#app')
+new Vue({
+	router,
+	store,
+	render: (h) => h(App),
+}).$mount("#app");
