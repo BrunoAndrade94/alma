@@ -1,7 +1,7 @@
 <template>
 	<aside class="menu">
 		<b-button class="menu-button" v-b-toggle.sidebar-menu variant="none" block>
-			<icon class="fa-solid fa-ellipsis-vertical" />
+			<i class="fa-solid fa-ellipsis-vertical" />
 		</b-button>
 		<b-sidebar
 			lazy
@@ -33,11 +33,11 @@
 	};
 </script>
 
-<style>
+<style scope>
 	.menu-button {
 		width: 50px;
 		height: 100%;
-		color: white;
+		color: black;
 		justify-self: flex-start;
 		text-decoration: none;
 
@@ -45,7 +45,7 @@
 		justify-content: center;
 		align-items: center;
 	}
-	icon {
-		color: black;
+	.menu-button:hover {
+		color: white;
 	}
 </style>

@@ -3,17 +3,19 @@
 		<Menu />
 		<h1 class="title">
 			<router-link to="/">
-				<i class="fa-solid fa-cannabis" />
+				<i id="logo" class="fa-solid fa-cannabis" />
 			</router-link>
-			<span> Sistemas Alma</span>
+			<span> Alma</span>
 		</h1>
+		<MenuUsuario />
 	</header>
 </template>
 
 <script>
 	import Menu from "../pages/Menu.vue";
+	import MenuUsuario from "../config/MenuUsuario.vue";
 	export default {
-		components: { Menu },
+		components: { Menu, MenuUsuario },
 	};
 </script>
 
@@ -25,7 +27,6 @@
 		justify-content: center;
 		align-items: flex;
 	}
-
 	.title {
 		font-size: 1.5rem;
 		color: rgb(255, 255, 255);
@@ -37,7 +38,15 @@
 		padding-left: 0px;
 		flex-wrap: flex;
 	}
-	i {
+	span {
+		margin-left: 10px;
+	}
+	#logo {
+		margin-top: 5px;
+		margin-left: 10px;
 		color: rgb(115, 202, 115);
+	}
+	#logo:hover {
+		color: rgba(0, 0, 0, 0.2);
 	}
 </style>

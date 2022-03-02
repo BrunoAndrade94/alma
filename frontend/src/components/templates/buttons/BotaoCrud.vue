@@ -60,13 +60,13 @@
 	export default {
 		nome: "BotaoCrud",
 		props: {
-			desativarModoIncluir: String,
-			desativarModoOpcoes: String,
-			clicarObter: String,
-			clicarLimpar: String,
-			clicarIncluir: String,
-			clicarAtualizar: String,
-			clicarRemover: String,
+			desativarModoIncluir: Boolean,
+			desativarModoOpcoes: Boolean,
+			clicarObter: Function,
+			clicarLimpar: Function,
+			clicarIncluir: Function,
+			clicarAtualizar: Function,
+			clicarRemover: Function,
 			apenasAtualizar: Boolean,
 		},
 	};

@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import HomePage from "../components/templates/pages/Home.vue";
+import Home from "../components/templates/home/Home.vue";
+import PaginasUsuarios from "../components/templates/pages/page/PaginasUsuarios.vue";
+import PaginasAdmin from "../components/templates/admin/PaginasAdmin.vue";
 
 Vue.use(VueRouter);
 
@@ -9,7 +10,17 @@ const routes = [
 	{
 		path: "/",
 		name: "home",
-		component: HomePage,
+		component: Home,
+	},
+	{
+		path: "/configurarUsuario",
+		name: "configUsuario",
+		component: PaginasUsuarios,
+	},
+	{
+		path: "/administracao",
+		name: "administracao",
+		component: PaginasAdmin,
 	},
 	{
 		path: "/about",
