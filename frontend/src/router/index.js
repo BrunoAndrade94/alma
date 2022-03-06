@@ -4,6 +4,7 @@ import Home from "../components/templates/home/Home.vue";
 import PaginasUsuarios from "../components/templates/pages/page/PaginasUsuarios.vue";
 import PaginasAdmin from "../components/templates/admin/PaginasAdmin.vue";
 import Autenticar from "../components/auth/Autenticar.vue";
+import Produtos from "../components/templates/entity/Produtos.vue";
 
 Vue.use(VueRouter);
 
@@ -22,11 +23,17 @@ const routes = [
 		path: "/administracao",
 		name: "administracao",
 		component: PaginasAdmin,
+		meta: { requerAdmin: true },
 	},
 	{
 		path: "/autenticar",
 		name: "autenticar",
 		component: Autenticar,
+	},
+	{
+		path: "/produtos",
+		name: "produtos",
+		component: Produtos,
 	},
 	{
 		path: "/about",

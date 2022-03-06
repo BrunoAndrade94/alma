@@ -20,7 +20,7 @@
 				<b-col md="2" sm="2">
 					<b-form-group label="Código:" label-for="produto">
 						<b-form-input
-							v-model="produto.id"
+							v-model="idTela"
 							id="produto-id"
 							type="number"
 							min="0"
@@ -146,14 +146,15 @@
 	import axios from "axios";
 	import v from "@/validarGlobal";
 	import g from "@/global";
-	import TituloPagina from "../TituloPagina.vue";
-	import BotaoCrud from "../botoes/BotaoCrud.vue";
+	import TituloPagina from "../pages/page/Titulo.vue";
+	import BotaoCrud from "../buttons/BotaoCrud.vue";
 	export default {
 		nome: "Produtos",
 		components: { TituloPagina, BotaoCrud },
 		data: function () {
 			return {
 				modo: "incluir",
+				idTela: 0,
 				produto: {},
 				especie: {},
 				unidade: {},
@@ -188,6 +189,11 @@
 			};
 		},
 		methods: {
+			obterIdTela() {
+				axios.get(`${baseApi}modulo/Produtos`).then((id) => {
+					this.idTela = [id.data];
+				});
+			},
 			clicou(evento) {
 				if (evento.which === 13) {
 					if (this.modo === "incluir") {
@@ -327,6 +333,7 @@
 		created() {},
 		mounted() {
 			this.carregarDados();
+			this.obterIdTela();
 		},
 	};
 </script>

@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		usuario: { nome: "dbamv", admin: true },
+		usuario: null,
 	},
 	mutations: {
 		definirUsuario(estado, usuario) {

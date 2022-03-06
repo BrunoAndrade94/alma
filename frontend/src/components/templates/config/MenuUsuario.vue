@@ -25,7 +25,7 @@
 				<b-dd-divider />
 				<b-dd-item to="/autenticar">
 					<i class="fa-solid fa-person-running" />
-					<span> Sair </span>
+					<span href @click.prevent> Sair </span>
 				</b-dd-item>
 			</b-dd>
 		</div>

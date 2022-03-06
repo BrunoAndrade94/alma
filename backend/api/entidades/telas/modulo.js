@@ -214,12 +214,27 @@ module.exports = (app) => {
 			.catch((erro) => res.status(500).send(erro));
 	};
 
+	const obterPorNome = (req, res) => {
+		try {
+			const nome = req.params.nome;
+
+			app.db(tabela.modulos)
+				.select(coluna.id)
+				.where({ nome: nome })
+				.then((modulo) => res.send(modulo))
+				.catch((erro) => res.status(500).send(erro));
+		} catch (erro) {
+			res.status(400).send(erro);
+		}
+	};
+
 	return {
 		incluir,
 		atualizar,
 		remover,
 		recuperarRemovido,
 		obter,
+		obterPorNome,
 		obterPorId,
 		obterArvore,
 		obterModuloAnterior,

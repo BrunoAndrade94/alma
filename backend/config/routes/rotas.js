@@ -93,6 +93,8 @@ module.exports = (app) => {
 		.post(app.api.entidades.telas.modulo.incluir)
 		.get(app.api.entidades.telas.modulo.obter);
 
+	app.route("/modulo/:nome").get(app.api.entidades.telas.modulo.obterPorNome);
+
 	app.route("/moduloAnterior/:id").get(
 		app.api.entidades.telas.modulo.obterModuloAnterior
 	);

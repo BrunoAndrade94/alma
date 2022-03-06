@@ -7,11 +7,47 @@
 </template>
 
 <script>
+	import { mapState } from "vuex";
+	import { baseApi, chaveUsuario } from "@/global";
+	import Loading from "./components/templates/pages/Loading.vue";
 	import Header from "./components/templates/pages/Header.vue";
 	import Content from "./components/templates/pages/Content.vue";
 	import Footer from "./components/templates/pages/Footer.vue";
 	export default {
-		components: { Header, Content, Footer },
+		components: { Header, Content, Footer, Loading },
+		computed: mapState(["usuario"]),
+		data: function () {
+			return {
+				validandoToken: true,
+			};
+		},
+		methods: {
+			async validarToken() {
+				this.validandoToken = true;
+
+				const json = localStorage.getItem(chaveUsuario);
+				const dadosUsuario = JSON.parse(json);
+				this.$store.commit("definirUsuario", null);
+
+				if (!dadosUsuario) {
+					this.validandoToken = false;
+					return this.$router.push({ path: "autenticar" });
+				}
+
+				const res = await axios.post(`${baseApi}validarToken`, dadosUsuario);
+
+				if (res.data) {
+					this.$store.commit("definirUsuario", dadosUsuario);
+				} else {
+					localStorage.removeItem(chaveUsuario);
+					return this.$router.push({ path: "autenticar" });
+				}
+				this.validandoToken = false;
+			},
+		},
+		created() {
+			this.validarToken();
+		},
 	};
 </script>
 

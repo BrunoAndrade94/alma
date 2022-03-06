@@ -66,7 +66,7 @@
 			},
 			moduloSelecionado(modulo) {
 				this.$router.push({
-					name: "content",
+					name: "",
 					params: { nome: modulo.nome },
 				});
 			},
