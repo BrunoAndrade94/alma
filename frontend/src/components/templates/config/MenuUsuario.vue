@@ -14,7 +14,7 @@
 					<span> Produtos </span>
 				</b-dd-item>
 				<b-dd-header> Opções do Usuário </b-dd-header>
-				<b-dd-item to="/administracao">
+				<b-dd-item v-if="usuario.admin" to="/administracao">
 					<i class="fa-solid fa-users-gear" />
 					<span> Administração </span>
 				</b-dd-item>
@@ -23,8 +23,8 @@
 					<span> Configurar Usuário </span>
 				</b-dd-item>
 				<b-dd-divider />
-				<b-dd-item
-					><i class="fa-solid fa-person-running" />
+				<b-dd-item to="/autenticar">
+					<i class="fa-solid fa-person-running" />
 					<span> Sair </span>
 				</b-dd-item>
 			</b-dd>
@@ -33,27 +33,33 @@
 </template>
 
 <script>
-	// import { chaveUsuario } from "@/global";
+	import { chaveUsuario } from "@/global";
 	import { mapState } from "vuex";
 	import Gravatar from "vue-gravatar";
 	export default {
 		components: { Gravatar },
 		computed: mapState(["usuario"]),
-		// methods: {
-		// 	deslogar() {
-		// 		localStorage.removeItem(chaveUsuario);
-		// 		this.$store.commit("definirUsuario", null);
-		// 		this.$router.push({ path: "/logar" });
-		// 	},
-		// },
+		methods: {
+			deslogar() {
+				localStorage.removeItem(chaveUsuario);
+				this.$store.commit("definirUsuario", null);
+				this.$router.push({ path: "/autenticar" });
+			},
+		},
 	};
 </script>
 
 <style setup>
+	#img {
+		size: 5px;
+		/* padding: 10px; */
+		margin: 0px 70px;
+		max-height: 30px;
+		border-radius: 7px;
+	}
 	i {
 		font-size: 1.6rem;
 	}
-
 	.botao-usuario {
 		display: flex;
 		align-items: center;

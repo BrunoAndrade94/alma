@@ -1,7 +1,7 @@
 <template>
 	<div class="config-usuario">
 		<b-card no-body>
-			<b-tabs pills card>
+			<b-tabs id="as" lazy pills card>
 				<b-tab title="Usuário" active>
 					<TituloPagina
 						icone="fa-solid fa-user-gear"
@@ -13,7 +13,7 @@
 						:clicarAtualizar="atualizar"
 						:apenasAtualizar="true"
 					/>
-					<b-form>
+					<b-form id="formulario">
 						<input id="usuario-id" type="hidden" v-model="usuario.id" />
 						<b-row>
 							<b-col md="6" sm="12">
@@ -100,7 +100,7 @@
 
 <script>
 	import axios from "axios";
-	// import g from "@/global";
+	import g from "@/global";
 	import { mapState } from "vuex";
 	import TituloPagina from "../pages/page/Titulo.vue";
 	import BotaoCrud from "../buttons/BotaoCrud.vue";
@@ -141,4 +141,7 @@
 </script>
 
 <style>
+	#as {
+		background-color: rgb(214, 173, 173);
+	}
 </style>

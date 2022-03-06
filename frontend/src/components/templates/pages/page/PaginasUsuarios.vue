@@ -1,10 +1,8 @@
 <template>
 	<div class="paginas-usuario">
-		<div class="paginas-usuario-tabs">
-			<b-card no-body>
-				<ConfigUsuario />
-			</b-card>
-		</div>
+		<b-card no-body>
+			<ConfigUsuario />
+		</b-card>
 	</div>
 </template>
 

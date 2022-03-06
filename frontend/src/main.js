@@ -1,6 +1,7 @@
 import "@fortawesome/fontawesome-free/css/all.css";
 
 import "./config/bootstrapVue";
+import "./config/notificacoes";
 import "./config/db/axios";
 
 import Vue from "vue";

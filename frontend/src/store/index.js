@@ -5,10 +5,20 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		usuario: { nome: "DBAMV" },
-		paginaAtual: 1,
+		usuario: { nome: "dbamv", admin: true },
 	},
-	mutations: {},
+	mutations: {
+		definirUsuario(estado, usuario) {
+			estado.usuario = usuario;
+			if (usuario) {
+				axios.defaults.headers.common[
+					"Authorization"
+				] = `bearer ${usuario.token}`;
+			} else {
+				delete axios.defaults.headers.common["Authorization"];
+			}
+		},
+	},
 	getters: {},
 	actions: {},
 	modules: {},

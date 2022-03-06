@@ -1,21 +1,24 @@
 <template>
 	<header class="header">
-		<Menu />
+		<Menu v-if="usuario" />
 		<h1 class="title">
-			<router-link to="/">
+			<router-link v-if="usuario" to="/">
 				<i id="logo" class="fa-solid fa-cannabis" />
 			</router-link>
+			<i v-else id="logo" class="fa-solid fa-cannabis" />
 			<span> Alma</span>
 		</h1>
-		<MenuUsuario />
+		<MenuUsuario v-if="usuario" />
 	</header>
 </template>
 
 <script>
+	import { mapState } from "vuex";
 	import Menu from "../pages/Menu.vue";
 	import MenuUsuario from "../config/MenuUsuario.vue";
 	export default {
 		components: { Menu, MenuUsuario },
+		computed: mapState(["usuario"]),
 	};
 </script>
 

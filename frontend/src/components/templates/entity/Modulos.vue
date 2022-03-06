@@ -91,7 +91,6 @@
 		<hr />
 		<b-table
 			stacked="sm"
-			table-variant="info"
 			:current-page="paginaAtual"
 			:per-page="porPagina"
 			:items="modulos"

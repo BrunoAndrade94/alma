@@ -27,7 +27,7 @@ module.exports = (app) => {
 	app.route("/usuario/:id").put(app.api.entidades.usuario.atualizar);
 
 	app.route("/usuarios/:id")
-		.all(app.config.admin.passaporte.autenticar())
+		// .all(app.config.admin.passaporte.autenticar())
 		.get(app.api.entidades.usuario.obterPorId)
 		.delete(admin(app.api.entidades.usuario.remover));
 
@@ -62,12 +62,12 @@ module.exports = (app) => {
 	// ROTAS CLASSES =========
 	//========================
 	app.route("/classes")
-		.all(app.config.admin.passaporte.autenticar())
+		// .all(app.config.admin.passaporte.autenticar())
 		.post(app.api.entidades.classe.incluir)
 		.get(app.api.entidades.classe.obter);
 
 	app.route("/classes/:id")
-		.all(app.config.admin.passaporte.autenticar())
+		// .all(app.config.admin.passaporte.autenticar())
 		.get(app.api.entidades.classe.obterPorId)
 		.delete(app.api.entidades.classe.remover)
 		.put(app.api.entidades.classe.atualizar);
@@ -98,15 +98,15 @@ module.exports = (app) => {
 	);
 
 	app.route("/arvore/modulos")
-		.all(app.config.admin.passaporte.autenticar())
+		// .all(app.config.admin.passaporte.autenticar())
 		.get(app.api.entidades.telas.modulo.obterArvore);
 
 	app.route("/recuperarModulos/:id")
-		.all(app.config.admin.passaporte.autenticar())
+		// .all(app.config.admin.passaporte.autenticar())
 		.post(app.api.entidades.telas.modulo.recuperarRemovido);
 
 	app.route("/modulos/:id")
-		.all(app.config.admin.passaporte.autenticar())
+		// .all(app.config.admin.passaporte.autenticar())
 		.get(app.api.entidades.telas.modulo.obterPorId)
 		.delete(app.api.entidades.telas.modulo.remover)
 		.put(app.api.entidades.telas.modulo.atualizar);
@@ -120,6 +120,6 @@ module.exports = (app) => {
 		.get(app.api.entidades.telas.tela.obterJoin);
 
 	app.route("/telas/:id")
-		.all(app.config.admin.passaporte.autenticar())
+		// .all(app.config.admin.passaporte.autenticar())
 		.put(app.api.entidades.telas.tela.atualizar);
 };

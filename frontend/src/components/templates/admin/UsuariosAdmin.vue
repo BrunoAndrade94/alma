@@ -45,7 +45,7 @@
 			</b-row>
 
 			<b-row>
-				<b-col md="6" sm="12">
+				<b-col class="mt-3" md="6" sm="12">
 					<b-form-group label="* Usuário:" label-for="usuario.usuario">
 						<b-form-input
 							id="usuario-usuario"
@@ -106,7 +106,14 @@
 			<hr />
 		</b-form>
 		<hr />
-		<b-table responsive hover striped :items="usuarios" :fields="campos">
+		<b-table
+			stacked="sm"
+			responsive
+			hover
+			striped
+			:items="usuarios"
+			:fields="campos"
+		>
 			<template slot="acoes" slot-scope="data">
 				<b-button
 					variant="info"
@@ -212,14 +219,14 @@
 			limpar(modo = "incluir") {
 				this.modo = modo;
 				this.usuario = {};
-				// this.carregarUsuarios();
+				// his.carregarUsuarios();
 			},
 			incluir() {
 				axios
 					.post(`${g.baseApi}usuarios`, this.usuario)
 					.then(() => {
 						g.mostrarSucesso("Incluído com sucesso!");
-						this.limpar();
+						this.carregarUsuarios();
 					})
 					.catch(g.mostrarErro);
 			},
@@ -228,7 +235,7 @@
 					.put(`${g.baseApi}usuario/${this.usuario.id}`, this.usuario)
 					.then(() => {
 						g.mostrarSucesso(`${this.usuario.nome} atualizado com sucesso!`);
-						this.limpar();
+						this.carregarUsuarios();
 					})
 					.catch(g.mostrarErro);
 			},
@@ -237,7 +244,7 @@
 					.delete(`${g.baseApi}usuarios/${this.usuario.id}`)
 					.then(() => {
 						g.mostrarSucesso(`${this.usuario.nome} excluído com sucesso!`);
-						this.limpar();
+						this.carregarUsuarios();
 					})
 					.catch(g.mostrarErro);
 			},

@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../components/templates/home/Home.vue";
 import PaginasUsuarios from "../components/templates/pages/page/PaginasUsuarios.vue";
 import PaginasAdmin from "../components/templates/admin/PaginasAdmin.vue";
+import Autenticar from "../components/auth/Autenticar.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes = [
 		path: "/administracao",
 		name: "administracao",
 		component: PaginasAdmin,
+	},
+	{
+		path: "/autenticar",
+		name: "autenticar",
+		component: Autenticar,
 	},
 	{
 		path: "/about",
