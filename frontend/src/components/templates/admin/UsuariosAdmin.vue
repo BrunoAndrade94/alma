@@ -113,6 +113,8 @@
 			striped
 			:items="usuarios"
 			:fields="campos"
+			:current-page="paginaAtual"
+			:per-page="porPagina"
 		>
 			<template slot="acoes" slot-scope="data">
 				<b-button
@@ -160,7 +162,7 @@
 				usuario: {},
 				usuarios: [],
 				paginaAtual: 1,
-				porPagina: 5,
+				porPagina: 3,
 				totalDeLinhas: 0,
 				campos: [
 					{

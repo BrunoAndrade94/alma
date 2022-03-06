@@ -18,7 +18,7 @@
 		computed: mapState(["usuario"]),
 		data: function () {
 			return {
-				validandoToken: true,
+				validandoToken: Boolean,
 			};
 		},
 		methods: {

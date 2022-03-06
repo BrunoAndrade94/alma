@@ -43,7 +43,7 @@
 			deslogar() {
 				localStorage.removeItem(chaveUsuario);
 				this.$store.commit("definirUsuario", null);
-				this.$router.push({ path: "/autenticar" });
+				this.$router.push({ path: "autenticar" });
 			},
 		},
 	};
